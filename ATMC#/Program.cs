@@ -163,38 +163,66 @@ do
                             if (choice_emeliyyat == 0)
                             {
                                 Console.Clear();
-                                clients[Current_Client].Card.balance -= 10;
-                                Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                if (clients[Current_Client].Card.balance < 10)
+                                {
+                                    Console.WriteLine("Kartda kifayet qeder balans yoxdur");
+                                }
+                                else
+                                {
+                                    clients[Current_Client].Card.balance -= 10;
+                                    Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                    emeliyatlar.Add(DateTime.Now, "+10 Azn");
+                                }
                                 Console.WriteLine("Press any button for continue...");
                                 Console.ReadKey();
-                                emeliyatlar.Add(DateTime.Now, "+10 Azn");
                             }
                             else if (choice_emeliyyat == 1)
                             {
                                 Console.Clear();
-                                clients[Current_Client].Card.balance -= 20;
-                                Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                if (clients[Current_Client].Card.balance < 20)
+                                {
+                                    Console.WriteLine("Kartda kifayet qeder balans yoxdur");
+                                }
+                                else
+                                {
+                                    clients[Current_Client].Card.balance -= 20;
+                                    Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                    emeliyatlar.Add(DateTime.Now, "+20 Azn");
+                                }
                                 Console.WriteLine("Press any button for continue...");
                                 Console.ReadKey();
-                                emeliyatlar.Add(DateTime.Now, "+20 Azn");
                             }
                             else if (choice_emeliyyat == 2)
                             {
                                 Console.Clear();
-                                clients[Current_Client].Card.balance -= 50;
-                                Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                if (clients[Current_Client].Card.balance < 50)
+                                {
+                                    Console.WriteLine("Kartda kifayet qeder balans yoxdur");
+                                }
+                                else
+                                {
+                                    clients[Current_Client].Card.balance -= 50;
+                                    Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                    emeliyatlar.Add(DateTime.Now, "+50 Azn");
+                                }
                                 Console.WriteLine("Press any button for continue...");
                                 Console.ReadKey();
-                                emeliyatlar.Add(DateTime.Now, "+50 Azn");
                             }
                             else if (choice_emeliyyat == 3)
                             {
                                 Console.Clear();
-                                clients[Current_Client].Card.balance -= 100;
-                                Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                if (clients[Current_Client].Card.balance < 100)
+                                {
+                                    Console.WriteLine("Kartda kifayet qeder balans yoxdur");
+                                }
+                                else
+                                {
+                                    clients[Current_Client].Card.balance -= 100;
+                                    Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                    emeliyatlar.Add(DateTime.Now, "+100 Azn");
+                                }
                                 Console.WriteLine("Press any button for continue...");
                                 Console.ReadKey();
-                                emeliyatlar.Add(DateTime.Now, "+100 Azn");
                             }
                             else if (choice_emeliyyat == 4)
                             {
@@ -204,11 +232,19 @@ do
                                 bool netice = int.TryParse(Console.ReadLine(), out nagd);
                                 if (netice == true)
                                 {
-                                    clients[Current_Client].Card.balance -= nagd;
-                                    Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                    Console.Clear();
+                                    if (clients[Current_Client].Card.balance < nagd)
+                                    {
+                                        Console.WriteLine("Kartda kifayet qeder balans yoxdur");
+                                    }
+                                    else
+                                    {
+                                        clients[Current_Client].Card.balance -= nagd;
+                                        Console.WriteLine("Emeliyyat ugurla yerine yetirildi");
+                                        emeliyatlar.Add(DateTime.Now, $"+{nagd} Azn");
+                                    }
                                     Console.WriteLine("Press any button for continue...");
                                     Console.ReadKey();
-                                    emeliyatlar.Add(DateTime.Now, $"+{nagd} Azn");
                                 }
                                 else
                                     throw new Exception("Ancaq eded daxil olunmalidir !!!");
